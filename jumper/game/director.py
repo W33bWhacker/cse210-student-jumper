@@ -44,13 +44,8 @@ class Director:
         """ 
         counter = 0
 
-        print(self.list_safe)
-
-
         if self.letter not in self.list_safe: 
-            self.lives =+ 1
-
-        print(self.lives)
+            self.lives += 1
 
         for i in self.list_safe:
             if self.letter != i:
