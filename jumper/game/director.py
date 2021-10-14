@@ -60,7 +60,10 @@ class Director:
         args:
             self(director): an instance of director
         """ 
-        print(self.list_guess[:5])
+        for _ in self.list_guess:
+
+            print(self.list_guess[_])
+
         self.picture.showPicture(self.lives)
         self.letter = self.guesser.make_guess()
         
