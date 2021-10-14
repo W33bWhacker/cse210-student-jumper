@@ -1,12 +1,13 @@
 class Guesser:
 
-    def __init__(self, lives = 0):
+    def __init__(self):
         ''' the class contructor, keeps track of lives when intiated
 
         Args:
             seld(Guesser): an instance of Guesser
         '''
-        self.lives = lives
+        self.lives = 0
+        self.user_guess = None
 
 
     def make_guess(self):
