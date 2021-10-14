@@ -14,7 +14,7 @@ class Director:
         self.keep_playing = True
         self.guesser = Guesser()
         self.lives = 0
-        self.list_guess = []
+        self.list_guess = ["_", "_", "_", "_", "_"]
         self.list_safe = []
         self.letter = None
 
@@ -27,9 +27,13 @@ class Director:
         self.word.word_bank()
         self.word.safe_word()
 
+        for x in self.word.word:
+            self.list_safe.append(x)
+
         while self.keep_playing:
             self.do_outputs()
             self.do_updates()
+            self.keep_play()
 
     def do_updates(self):
         """ determines if guess is correct or not, adjusts 
@@ -39,21 +43,22 @@ class Director:
 
         """ 
         counter = 0
-        self.list_guess = ["_", "_", "_", "_", "_"]
-        for x in self.word.word:
-            self.list_safe.append(x)
+
+        print(self.list_safe)
+
 
         if self.letter not in self.list_safe: 
             self.lives =+ 1
 
+        print(self.lives)
+
         for i in self.list_safe:
             if self.letter != i:
-                self.list_guess[counter]="_"
                 counter += 1
             else:
                 self.list_guess[counter] = i
                 counter += 1
-            return self.list_guess
+        return self.list_guess
 
     def do_outputs(self):
         """  prints guess marks gets the picture from picture
@@ -65,7 +70,7 @@ class Director:
         self.letter = self.guesser.make_guess()
         
 
-    def keep_playing(self):
+    def keep_play(self):
         """ keeps the game going while lives != 4
             args:
                 self(director) an instance of director
