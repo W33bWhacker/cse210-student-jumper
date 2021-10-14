@@ -60,7 +60,12 @@ class Director:
         args:
             self(director): an instance of director
         """ 
-        print(self.list_guess[:5])
+        x = 0
+        while x < len(self.list_guess):
+            print(f"{self.list_guess[x]}", end='')
+            x += 1
+        print()
+        print()
         self.picture.showPicture(self.lives)
         self.letter = self.guesser.make_guess()
         
@@ -70,11 +75,16 @@ class Director:
             args:
                 self(director) an instance of director
         """ 
+
         if self.lives == 4:
             self.keep_playing = False
-            food = print("you lost loser")
-            return food
+            self.picture.showPicture(4)
+            print("you lost loser")
         elif "_" not in self.list_guess:
             self.keep_playing = False
-            food = print("you won buddy you lived")
-            return food
+            x = 0
+            while x < len(self.list_guess):
+                print(f"{self.list_guess[x]}", end='')
+                x += 1
+            print()
+            print("you won buddy you lived")
