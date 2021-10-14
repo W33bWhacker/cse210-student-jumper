@@ -3,11 +3,22 @@ import random
 class Word:
 
     def __init__(self):
+        """The class constructor.
+        
+        Args:
+            self (Word): an instance of a Word.
+        """
 
         self.words = []
         self.word = None
 
     def word_bank(self):
+        """Populates 'words' attribute with list of words that can be chosen 
+        at random.
+        
+        Args:
+            self (Word): an instance of a Word.
+        """
 
         self.words = [
             "ghost",
@@ -46,5 +57,10 @@ class Word:
         ]
     
     def safe_word(self):
+        """Randomly generates a word from the word list that the guessee can guess.
+        
+        Args:
+            self (Word): an instance of a Word.
+        """
 
         self.word = random.choice(self.words)
